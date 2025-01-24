@@ -104,7 +104,7 @@ async function fetchMovieDetails() {
         // 영화 해상도 고해상도로 변경
         let Highposter;
         if (movie.Poster !== "N/A") {
-            Highposter = movie.Poster.replace("SX300", "SX300");
+            Highposter = movie.Poster.replace("SX300", "SX3000");
         } else {
             Highposter = "/assets/images/poster-NotAvailable.png";
         }
@@ -172,12 +172,12 @@ async function fetchMovieDetails() {
                     <span class="detail-text">actors</span>
                     <ul class="actors-list">
                         <li class="actors-item">
-                            <img class="actors-img" src="https://image.tmdb.org/t/p/w500${actorImages[0]}"/>
+                            <img class="actors-img" src="https://image.tmdb.org/t/p/w100${actorImages[0]}"/>
                             <p class="actors-name">${movieActors[0]}</p>
                         </li>
 
                         <li class="actors-item">
-                            <img class="actors-img" src="https://image.tmdb.org/t/p/w500${actorImages[1]}"/>
+                            <img class="actors-img" src="https://image.tmdb.org/t/p/w300${actorImages[1]}"/>
                             <p class="actors-name">${movieActors[1]}</p>
                         </li>
 

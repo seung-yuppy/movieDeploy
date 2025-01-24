@@ -104,7 +104,7 @@ async function fetchMovieDetails() {
         // 영화 해상도 고해상도로 변경
         let Highposter;
         if (movie.Poster !== "N/A") {
-            Highposter = movie.Poster.replace("SX300", "SX3000");
+            Highposter = movie.Poster.replace("SX300", "SX300");
         } else {
             Highposter = "/assets/images/poster-NotAvailable.png";
         }

@@ -82,7 +82,7 @@ async function fetchMovieDetails() {
         let similarImgArr = [];
         if (!movieTMDBID) {
             for (let i = 1; i <= 9; i++) {
-                similarImgArr.push(`/assets/images/poster-NotAvailable.png`);
+                similarImgArr.push(`${api.GIT_URL}/assets/images/poster-NotAvailable.png`);
             }
         } else {
             const allIMG = await getSimilarMovie(movieTMDBID);
@@ -119,7 +119,7 @@ async function fetchMovieDetails() {
         <div class="movie-detail-content">
             <div class="detail-leftBox">
                 <div class="movie-img">
-                    <img src="${Highposter}" onerror="this.src='/assets/images/poster-NotAvailable.png'" />
+                    <img src="${Highposter}" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'" />
                 </div>
 
                 <div class="movie-options">
@@ -194,15 +194,15 @@ async function fetchMovieDetails() {
                     <div class="another-slideBox">
                         <div class="swiper anotherSwiper">
                             <ul class="swiper-wrapper">
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[0]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[1]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[2]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[3]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[4]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[5]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[6]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[7]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
-                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[8]}" alt="${movie.Actors} Poster" onerror="this.src='/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[0]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[1]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[2]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[3]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[4]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[5]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[6]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[7]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
+                                <li class="swiper-slide"><a href="#none"><img src="${similarImgArr[8]}" alt="${movie.Actors} Poster" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/></a></li>
                             </ul>
                         </div>
 

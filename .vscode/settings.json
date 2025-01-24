@@ -12,6 +12,5 @@
     "workbench.settings.applyToAllProfiles": [
 
     ],
-    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
-    "liveServer.settings.port": 5501
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": ""
 }

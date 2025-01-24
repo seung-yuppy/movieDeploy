@@ -55,6 +55,3 @@
  ┣ 📜index.html
  ┗ 📜README.md
 ```
-
-### 사이트 QR
-<img src="./assets/images/img-siteURL.jpg" alt="이스트소프트 5팀 영화사이트"/>

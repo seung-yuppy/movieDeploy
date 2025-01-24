@@ -32,7 +32,7 @@ export function searchPoint() {
 
         // 페이지 이동하면서 파라미터 값도 전달
         // let newUrl = `https://2eebyeonghyun.github.io/Est5movie/public/result.html?search=${encodeURIComponent(value)}`;
-        let newUrl = `/public/result.html?search=${encodeURIComponent(value)}`;
+        let newUrl = `${api.GIT_URL}/public/result.html?search=${encodeURIComponent(value)}`;
 
         if (year) {
             newUrl += `&year=${encodeURIComponent(year)}`;
@@ -131,8 +131,8 @@ function renderMovies(movies) {
 
         // 카드영역 코드
         movieCard.innerHTML = `
-        <a href="/public/inner-view.html?id=${movie.imdbID}" class="card-item">
-            <img class="result-image" src="${Highposter}" onerror="this.src='/assets/images/poster-NotAvailable.png'"/>
+        <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="card-item">
+            <img class="result-image" src="${Highposter}" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/>
             <div class="result-informationBox">
                 <h2 class="informationBox-title movie-title">${movie.Title}</h2>
                 <ul class="informationBox-subList">

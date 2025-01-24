@@ -11,7 +11,7 @@ async function mainSlide() {
     try {
         // json폴더의 main.json 호출
         // const res = await fetch('../assets/json/main.json');
-        const res = await fetch(`/assets/json/main.json`);
+        const res = await fetch(`${api.GIT_URL}/assets/json/main.json`);
         const data = await res.json();
         const movies = data.movies;
 
@@ -36,20 +36,20 @@ async function mainSlide() {
                     <ul class="movie-ratingBox">
                         <li class="rating-row">
                             <div class="rating-logo">
-                                <img src="/assets/images/logo-imdb.svg" alt="Internet Movie Database 로고">
+                                <img src="${api.GIT_URL}/assets/images/logo-imdb.svg" alt="Internet Movie Database 로고">
                             </div>
                             <p class="rating-value">${movie.Ratings[0].Value}</p>
                         </li>
                         <li class="rating-row">
                             <div class="rating-logo">
-                                <img src="/assets/images/logo-tomato.svg" alt="Rotten Tomatoes 로고">
+                                <img src="${api.GIT_URL}/assets/images/logo-tomato.svg" alt="Rotten Tomatoes 로고">
                             </div>
                             <p class="rating-value">${movie.Ratings[1].Value}</p>
                         </li>
                     </ul>
 
                     <p class="movie-description">${movie.Plot}</p>
-                    <a href="/public/inner-view.html?id=${movie.imdbID}" class="btn-click" aria-label="영화 정보">More Info</a>
+                    <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="btn-click" aria-label="영화 정보">More Info</a>
                 </div>
             `;
 
@@ -88,7 +88,7 @@ function popularSeries() {
 
         slideList.innerHTML = 
         `
-            <a href="/public/result.html?search=${encodeURIComponent(movie)}&year=all&type=all">${movie}</a>
+            <a href="${api.GIT_URL}/public/result.html?search=${encodeURIComponent(movie)}&year=all&type=all">${movie}</a>
         `;
 
         slideBox2.appendChild(slideList);

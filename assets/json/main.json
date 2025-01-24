@@ -1,0 +1,124 @@
+{
+    "movies": [
+      {
+        "Title": "Bumblebee",
+        "Year": "2018",
+        "Rated": "PG-13",
+        "Released": "21 Dec 2018",
+        "Runtime": "114 min",
+        "Genre": "Action, Adventure, Sci-Fi",
+        "Director": "Travis Knight",
+        "Writer": "Christina Hodson",
+        "Actors": "Hailee Steinfeld, Jorge Lendeborg Jr., John Cena",
+        "Plot": "On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small California beach town. On the cusp of turning 18 and trying to find her place in the world, Charlie Watson discovers Bumblebee, battle-scarred and broken.",
+        "Language": "English",
+        "Country": "United States, China",
+        "Awards": "2 wins & 13 nominations total",
+        "Poster": "assets/images/poster-Transformers_2018.jpg",
+        "Ratings": [
+          {
+            "Source": "Internet Movie Database",
+            "Value": "6.7/10"
+          },
+          {
+            "Source": "Rotten Tomatoes",
+            "Value": "91%"
+          },
+          {
+            "Source": "Metacritic",
+            "Value": "66/100"
+          }
+        ],
+        "Metascore": "66",
+        "imdbRating": "6.7",
+        "imdbVotes": "195,932",
+        "imdbID": "tt4701182",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$127,195,589",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+      },
+      {
+        "Title": "Venom",
+        "Year": "2018",
+        "Rated": "PG-13",
+        "Released": "05 Oct 2018",
+        "Runtime": "112 min",
+        "Genre": "Action, Adventure, Sci-Fi",
+        "Director": "Ruben Fleischer",
+        "Writer": "Jeff Pinkner, Scott Rosenberg, Kelly Marcel",
+        "Actors": "Tom Hardy, Michelle Williams, Riz Ahmed",
+        "Plot": "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.",
+        "Language": "English, Mandarin, Malay",
+        "Country": "United States, China",
+        "Awards": "2 wins & 9 nominations total",
+        "Poster": "assets/images/poster-Venom_2018.jpg",
+        "Ratings": [
+          {
+            "Source": "Internet Movie Database",
+            "Value": "6.6/10"
+          },
+          {
+            "Source": "Rotten Tomatoes",
+            "Value": "30%"
+          },
+          {
+            "Source": "Metacritic",
+            "Value": "35/100"
+          }
+        ],
+        "Metascore": "35",
+        "imdbRating": "6.6",
+        "imdbVotes": "565,832",
+        "imdbID": "tt1270797",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$213,515,506",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+      },
+      {
+        "Title": "Wicked",
+        "Year": "2024",
+        "Rated": "PG",
+        "Released": "22 Nov 2024",
+        "Runtime": "160 min",
+        "Genre": "Fantasy, Musical, Romance",
+        "Director": "Jon M. Chu",
+        "Writer": "Winnie Holzman, Dana Fox, Gregory Maguire",
+        "Actors": "Cynthia Erivo, Ariana Grande, Jeff Goldblum",
+        "Plot": "Elphaba, a misunderstood young woman because of her green skin, and Glinda, a popular girl, become friends at Shiz University in the Land of Oz. After an encounter with the Wonderful Wizard of Oz, their friendship reaches a crossr...",
+        "Language": "English",
+        "Country": "United States, Japan, Canada, Iceland, United Kingdom",
+        "Awards": "33 wins & 111 nominations total",
+        "Poster": "assets/images/poster-Wicked_2024.jpg",
+        "Ratings": [
+          {
+            "Source": "Internet Movie Database",
+            "Value": "8.0/10"
+          },
+          {
+            "Source": "Rotten Tomatoes",
+            "Value": "88%"
+          },
+          {
+            "Source": "Metacritic",
+            "Value": "73/100"
+          }
+        ],
+        "Metascore": "73",
+        "imdbRating": "8.0",
+        "imdbVotes": "69,655",
+        "imdbID": "tt1262426",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "$374,135,875",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+      }
+    ]
+}

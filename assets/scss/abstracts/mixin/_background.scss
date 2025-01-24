@@ -1,0 +1,18 @@
+@use '../variables' as *;
+@use 'sass:meta';
+
+@mixin background($filename, $coordinate: null, $color: null, $option: null, $value: null){
+    @if meta.type-of($filename) != 'string' or $filename == "" or $filename == (){
+        @error '이미지는 파일명.확장명까지 작성해야 합니다.';
+    }
+    
+    background: url(#{$imgUrl}#{$filename}) no-repeat $coordinate $color;
+
+    @if $option == 'size'{
+        background-size: $value;
+    } @else if $option == 'origin' {
+        background-origin: $value;
+    } @else if $option == 'clip' {
+        background-clip: $value;
+    }
+}

@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.utility-list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    @include w430 {
+        width: 100%;
+        justify-content: space-between;
+
+        .utility-item {
+            
+            &:first-of-type {
+                width: 100%;
+            }
+        }
+    }
+}

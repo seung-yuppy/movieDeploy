@@ -1,0 +1,12 @@
+@use '../variables' as *;
+
+.inner {
+    width: 100%;
+    /* 내부사이즈를 130rem으로 고정한다. */
+    max-width: $maxWidth;
+    margin: 0 auto;
+
+    @media (width < 1300px) {
+        max-width: 95%;
+    }
+}

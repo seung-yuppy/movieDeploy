@@ -1,0 +1,97 @@
+@use '../abstracts/' as *;
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+
+    .another-series & {
+        // height: 30rem;
+    }
+}
+
+.swiper-option {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+    z-index: 100;
+
+    .another-series & {
+        width: 20rem;
+        position: relative;
+        top: 0;
+        translate: 0 0;
+
+        @include w768 {
+            width: 100%;
+        }
+    }
+}
+
+.swiper-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: $marginInline;
+
+    .another-series & {
+        width: 100%;
+        gap: 5rem;
+        justify-content: flex-end;
+        margin: 0;
+
+        @include w768 {
+            justify-content: space-between;
+        }
+    }
+
+    @include w1240 {
+        margin-inline: 3rem;
+    }
+
+    @include w768 {
+
+        .main-page & {
+            display: none;
+        }
+    }
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+
+    .main-page & {
+        position: relative;
+        top: 0;
+        margin-top: 0;
+        width: 2.8rem;
+    }
+
+    .another-series & {
+        position: relative;
+        top: 0;
+        margin-top: 0;
+        width: 2.8rem;
+
+        @include w768 {
+            width: 2rem;
+        }
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.swiper-button-prev, 
+.swiper-rtl .swiper-button-next {
+    left: 0;
+}
+
+.swiper-button-next, 
+.swiper-rtl .swiper-button-prev {
+    right: 0;
+}

@@ -1,0 +1,223 @@
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./layout/" as *;
+@use "./components/" as *;
+@use "./themes/" as *;
+
+.detail-page {
+    // 2025.01.20 부모클래스에 넓이, 높이값 지정
+    // section에도 넓이 높이값 지정 수정
+    // container 추가( 이병현)
+    width: 100%;
+
+    .section {
+        width: 100%;
+    }
+
+    .container {
+        height: 100%;
+        padding: 15rem 0 10rem;
+        margin-inline: $marginInline;
+
+        @include w1240 {
+            margin-inline: 3rem;
+        }
+
+        @include w430 {
+            padding: 15rem 0 5rem;
+            margin-inline: 1.5rem
+        }
+    }
+
+    // 2025.01.22 상세페이지 디자인 수정( 이병현)
+    .movie-detail-content {
+        display: flex;
+        gap: 10rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .detail-leftBox {
+        width: 55rem;
+
+        .movie-img {
+            width: 100%;
+            margin-bottom: 5rem;
+        }
+
+        @include w1920 {
+            width: 45rem;
+        }
+
+        @include w1500 {
+            width: 40rem;
+            position: sticky;
+            top: 5rem;
+        }
+
+        @include w1240 {
+            width: 100%;
+            position: relative;
+            top: 0;
+        }
+    }
+
+    .movie-options {
+
+        > ul {
+            display: grid;
+            gap: 5rem;
+            grid-template-columns: repeat(3, 1fr);
+
+            .option-item {
+                display: flex;
+                justify-content: center;
+                
+                > a {
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            .option-img {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @include w430 {
+
+            > ul {
+                gap: 2rem;
+            }
+        }
+    }
+
+    .detail-rightBox {
+        width: calc(100% - 65rem);
+        display: flex;
+        gap: 10rem 5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .detail-row {
+            width: 100%;
+            margin-bottom: 7rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        @include w1920 {
+            width: calc(100% - 55rem);
+        }
+
+        @include w1240 {
+            width: 100%;
+        }
+    }
+
+    .movie-detailsBox {
+        width: calc(100% - 50rem);
+
+        @include w1920 {
+            width: calc(100% - 35rem);
+        }
+
+        @include w1500 {
+            width: 100%;
+        }
+    }
+
+    .movie-actors {
+        width: 45rem;
+
+        .actors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            .actors-item {
+                display: flex;
+                gap: 5rem;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .actors-img {
+                width: 10rem;
+                aspect-ratio: 1;
+                border-radius: 100%;
+            }
+
+            .actors-name {
+                width: calc(100% - 15rem);
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: $fontWhite;
+
+                html[data-mode="light"] & {
+                    color: $fontBlack;
+                }
+            }
+        }
+
+        @include w1920 {
+            width: 30rem;
+
+            .actors-list {
+
+                .actors-img {
+                    width: 8rem;
+                }
+            }
+        }
+
+        @include w1500 {
+            width: 100%;
+        }
+    }
+
+    .another-series {
+        width: 100%;
+        border-top: 2px solid #242E43;
+        padding-top: 3rem;
+
+        html[data-mode="light"] & {
+            border-top: 2px solid $boxColor;
+        }
+
+        .detail-text {
+            width: 100%;
+        }
+    }
+
+    .another-slideBox {
+        width: 100%;
+        display: inline-flex;
+        gap: 2rem 5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .anotherSwiper {
+            width: calc(100% - 25rem);
+            height: auto;
+
+            a {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        @include w768 {
+            gap: 5rem;
+
+            .anotherSwiper {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+
+html[data-mode="light"] {
+
+    body {
+        background-color: $bgwhite;
+        transition: background-color .3s;
+    }
+}
+
+html[data-mode="dark"] {
+
+    body {
+        background-color: $darkModebg;
+        transition: background-color .3s;
+    }
+}

@@ -1,0 +1,100 @@
+@use "./abstracts/" as *;
+@use "./base/" as *;
+@use "./layout/" as *;
+@use "./components/" as *;
+@use "./themes/" as *;
+
+.main-page {
+    width: 100%;
+    height: 100vh;
+
+    .section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contents {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .movie-imgBox {
+        width: 100%;
+        height: 100%;
+    }
+
+    .popular-seriesBox {
+        width: calc(100% - 10rem);
+        position: absolute;
+        bottom: 5.5rem;
+        left: 0;
+        z-index: 10;
+        margin-inline: $marginInline;
+
+        @include w1240 {
+            width: calc(100% - 6rem);
+            margin-inline: 3rem;
+        }
+
+        @include w430 {
+            width: calc(100% - 3rem);
+            margin-inline: 1.5rem;
+        }
+    }
+
+    .popular-item {
+        width: 100%;
+        height: 10rem;
+        background-color: rgba(255, 255, 255, 75%);
+        box-shadow: $boxShadow;
+        border-radius: 1.5rem;
+        transition: all .3s ease-in-out;
+
+        > a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: $fontBlack;
+        }
+
+        &:hover {
+            background-color: rgba(0,0,0,75%);
+
+            > a {
+                color: $fontWhite;
+            }
+        }
+
+        html[data-mode="light"] & {
+        
+            background-color: rgba(0, 0, 0, 75%);
+
+            > a {
+                color: $fontWhite;
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 75%);
+
+                > a {
+                    color: $fontBlack;
+                }
+            }
+        }
+
+        @include w768 {
+            height: 7rem;
+
+            > a {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

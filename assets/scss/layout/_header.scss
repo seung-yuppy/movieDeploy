@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+.header {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 10rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: $marginInline;
+
+    @include w1240 {
+        margin-inline: 3rem;
+    }
+
+    @include w430 {
+        height: auto;
+        display: flex;
+        gap: 2rem;
+        padding: 3rem 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-inline: 1.5rem;
+
+        .utility {
+            width: 100%;
+        }
+    }
+}

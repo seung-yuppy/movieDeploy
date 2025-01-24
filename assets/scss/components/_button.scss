@@ -1,0 +1,217 @@
+@use '../abstracts/' as *;
+
+.btn-change {
+    width: 2.4rem;
+    aspect-ratio: 1;
+    @include background('ico-darkMode.svg', center, null, size, cover);
+
+    // 아이콘 변경
+    html[data-mode="dark"] & {
+        @include background('ico-lightMode.svg', center, null, size, cover);
+    }
+}
+
+.btn-search {
+    width: 2rem;
+    aspect-ratio: 1;
+    @include background('ico-search.svg', center, null, size, cover);
+
+    .filter-box & {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        translate: 0 -50%;
+        filter: invert(1);
+
+        html[data-mode="light"] & {
+            filter: invert(0);
+        }
+    }
+}
+
+.btn-prev {
+    width: 9.4rem;
+    height: 15rem;
+    @include background('ico-prevArrow.svg', center, null, size, contain);
+
+    .main-page & {
+        filter: invert(1);
+
+        html[data-mode="light"] & {
+            filter: invert(0);
+        }
+    }
+
+    .another-series & {
+        width: 100%;
+        height: 100%;
+
+        html[data-mode="dark"] & {
+            filter: invert(1);
+        }
+    }
+}
+
+.btn-next {
+    width: 9.4rem;
+    height: 15rem;
+    @include background('ico-nextArrow.svg', center, null, size, contain);
+
+    .main-page & {
+        filter: invert(1);
+
+        html[data-mode="light"] & {
+            filter: invert(0);
+        }
+    }
+
+    .another-series & {
+        width: 100%;
+        height: 100%;
+
+        html[data-mode="dark"] & {
+            filter: invert(1);
+        }
+    }
+}
+
+.btn-watch {
+    position: relative;
+    overflow: hidden;
+    width: 20rem;
+    height: 5.5rem;
+    background-color: $infoButtonColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    color: #fff;
+    z-index: 1;
+    transition: all .3s ease-in-out;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        background-color: $bgblack;
+        transition: all .3s ease-in-out;
+    }
+
+    &::before {
+        content: '';
+        width: 2.4rem;
+        aspect-ratio: 1;
+        @include background('ico-playArrow.svg', center, null, size, contain);
+        filter: invert(1);
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        
+        &::after {
+            left: 0;
+            width: 100%;
+        }
+    }
+}
+
+.btn-click {
+    position: relative;
+    overflow: hidden;
+    width: 20rem;
+    height: 5.5rem;
+    background-color: $infoButtonColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 1;
+    transition: all .3s ease-in-out;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        background-color: $bgblack;
+        transition: all .3s ease-in-out;
+    }
+
+    html[data-mode="dark"] & {
+
+        &:hover {
+            color: $infoButtonColor;
+        }
+        
+        &::after {
+            background-color: $bgwhite;
+        }
+    }
+
+    &:hover {
+        
+        &::after {
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    .movie-detailsBox & {
+        margin-bottom: 3rem;
+
+        @include w430 {
+            width: 100%;
+            height: 5.5rem;
+        }
+    }
+
+    @include w768 {
+        width: 15rem;
+        height: 4.5rem;
+    }
+}
+
+.btn-favorite {
+    width: 3rem;
+    aspect-ratio: 1;
+    @include background('ico-favorite.svg', center, null, size, contain);
+
+    html[data-mode="dark"] & {
+        filter: invert(1);
+    }
+}
+
+.btn-later {
+    width: 3rem;
+    aspect-ratio: 1;
+    @include background('ico-bookmark.svg', center, null, size, contain);
+
+    html[data-mode="dark"] & {
+        filter: invert(1);
+    }
+}
+
+.btn-watched {
+    width: 3rem;
+    aspect-ratio: 1;
+    @include background('ico-watched.svg', center, null, size, contain);
+
+    html[data-mode="dark"] & {
+        filter: invert(1);
+    }
+}

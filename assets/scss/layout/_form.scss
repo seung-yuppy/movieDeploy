@@ -1,0 +1,101 @@
+@use '../abstracts/' as *;
+
+.form {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-select {
+    width: 13rem;
+    height: 5rem;
+    padding-inline: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $mainTextColor;
+    border-radius: 5rem;
+    border: 2px solid $borderColor;
+    outline: none;
+    background: url(../images/ico-downArrow.svg) calc(100% - 5px) center no-repeat;
+    background-size: 2rem;
+    color: #fff;
+
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    option {
+        color: $fontBlack;
+    }
+
+    html[data-mode="light"] & {
+        color: $fontBlack;
+        border: 2px solid $bgblack;
+        background: url(../images/ico-downArrow-black.svg) calc(100% - 5px) center no-repeat;
+        background-size: 2rem;
+    }
+
+    @include w1240 {
+        width: 10rem;
+        font-size: 1.4rem;
+    }
+
+    @include w768 {
+        display: none;
+    }
+}
+
+.form-input {
+    width: 30rem;
+    height: 5rem;
+    padding-inline: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: $mainTextColor;
+    border-radius: 5rem;
+    border: 2px solid $borderColor;
+    outline: none;
+    color: #fff;
+
+    .filter-box & {
+        width: 100%;
+
+        html[data-mode="light"] & {
+            color: $fontBlack;
+            border: 2px solid $bgblack;
+        }
+    }
+
+    @include w768 {
+        height: 4rem;
+    }
+
+    @include w430 {
+        height: 5rem;
+    }
+}
+
+.filter-box {
+    width: 40rem;
+    position: relative;
+
+    @include w1240 {
+        width: 25rem;
+        font-size: 1.4rem;
+    }
+
+    @include w768 {
+        width: 20rem;
+    }
+
+    @include w430 {
+        width: 100%;
+    }
+}

@@ -1,0 +1,36 @@
+@use '../variables' as *;
+
+@mixin w1920 {
+
+    @media (width < #{$w1920}) {
+        @content;
+    }
+}
+
+@mixin w1500 {
+
+    @media (width < #{$w1500}) {
+        @content;
+    }
+}
+
+@mixin w1240 {
+
+    @media (width < #{$w1240}) {
+        @content;
+    }
+}
+
+@mixin w768 {
+
+    @media (width < #{$w768}) {
+        @content;
+    }
+}
+
+@mixin w430 {
+
+    @media (width < #{$w430}) {
+        @content;
+    }
+}

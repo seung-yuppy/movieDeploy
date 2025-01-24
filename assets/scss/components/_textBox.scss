@@ -1,0 +1,141 @@
+@use '../abstracts/' as *;
+
+.movie-ratingBox {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    html[data-mode="light"] & {
+        
+        .rating-value {
+            color: $fontBlack;
+        }
+    }
+
+    .rating-row {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .rating-value {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: $fontWhite;
+    }
+}
+
+.movie-categoryBox {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    .main-page & {
+        gap: 2rem;
+    }
+}
+
+.movie-informationBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .main-page & {
+        display: block;
+        width: 100rem;
+        position: absolute;
+        top: 50%;
+        left: 20rem;
+        translate: 0 -50%;
+
+        @include w1240 {
+            width: calc(100% - 20rem);
+            left: 10rem;
+        }
+
+        @include w768 {
+            width: calc(100% - 6rem);
+            left: 3rem;
+        }
+
+        @include w430 {
+            width: calc(100% - 3rem);
+            left: 1.5rem;
+        }
+    }
+
+    > div {
+        display: flex;
+        gap: 6rem;
+    }
+
+    @include w768 {
+        
+        > div {
+            gap: 1.3rem;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.row-contentBox {
+    background-color: $boxColor;
+    border-radius: 1.5rem;
+    padding: 2rem;
+
+    .result-page & {
+
+        > ul {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+
+            > li {
+                display: flex;
+                gap: 1rem;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+
+        @include w1240 {
+            padding: 2rem 1rem;
+
+            > ul {
+                gap: 1.8rem;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @include w768 {
+
+            > ul {
+                gap: 2rem;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @include w430 {
+
+            > ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+.result-informationBox {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

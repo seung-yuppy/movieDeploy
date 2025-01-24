@@ -1,0 +1,17 @@
+{
+    // 2024.12.26 추가내용
+    "liveSassCompile.settings.generateMap": false, // 만일 .map 파일 생성을 끄고 싶다면
+    "liveSassCompile.settings.formats": [
+    {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "~/../css"
+    }
+    ],
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.settings.applyToAllProfiles": [
+
+    ],
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    "liveServer.settings.port": 5501
+}

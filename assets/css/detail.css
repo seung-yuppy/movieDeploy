@@ -1040,6 +1040,7 @@ html[data-mode=dark] body {
 }
 .detail-page .movie-actors .actors-list .actors-img {
   width: 10rem;
+  aspect-ratio: 1;
   border-radius: 100%;
 }
 .detail-page .movie-actors .actors-list .actors-name {

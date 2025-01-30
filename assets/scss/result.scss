@@ -169,9 +169,8 @@
 
         .result-image {
             height: 55rem;
-            // object-fit: cover;
+            object-fit: cover;
             border-radius: 1rem;
-            opacity: 1;
         }
 
         .movie-text {
@@ -182,8 +181,7 @@
         @include w768 {
 
             .result-image {
-                width: 20rem;
-                height: 20rem;
+                height: auto;
             }
         }
     }  

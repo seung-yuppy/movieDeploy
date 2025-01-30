@@ -15,7 +15,7 @@
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/js/public/main.js" type="module"></script>
+    <!-- <script src="assets/js/public/main.js" type="module"></script> -->
 </head>
 
 <body>
@@ -90,26 +90,26 @@
                             <option value="1971">1971</option>
                             <option value="1970">1970</option>
                         </select>
-        
+
                         <select class="form-select select-type">
                             <option value="all">전체</option>
                             <option value="movie">영화</option>
                             <option value="series">시리즈</option>
                             <option value="episode">에피소드</option>
                         </select>
-        
+
                         <div class="filter-box">
                             <input type="text" class="form-input input">
                             <button type="submit" class="btn-search" aria-label="검색"></button>
                         </div>
                     </form>
                 </li>
-                
+
                 <li class="utility-item">
                     <button type="button" class="btn-change" aria-label="모드 변경"></button>
                 </li>
             </ul>
-            
+
         </div>
     </header>
 
@@ -123,8 +123,10 @@
 
                 <div class="swiper-option">
                     <div class="swiper-navigation">
-                        <div class="swiper-button-prev"><button type="button" class="btn-prev" aria-label="이전"></button></div>  
-                        <div class="swiper-button-next"><button type="button" class="btn-next" aria-label="다음"></button></div>
+                        <div class="swiper-button-prev"><button type="button" class="btn-prev" aria-label="이전"></button>
+                        </div>
+                        <div class="swiper-button-next"><button type="button" class="btn-next" aria-label="다음"></button>
+                        </div>
                     </div>
                 </div>
 
@@ -142,6 +144,76 @@
 
     <h2 class="a11y-hidden">푸터 영역</h2>
     <footer class="footer main-footer"></footer>
+    <script>
+        async function mainSlide() {
+
+            try {
+                // json폴더의 main.json 호출
+                // const res = await fetch('../assets/json/main.json');
+                const res = await fetch(`${api.GIT_URL}/assets/json/main.json`);
+                const data = await res.json();
+                const movies = data.movies;
+
+                const slideBox = get('.mainSwiper .swiper-wrapper');
+
+                // li 생성후 내용 만들기
+                movies.forEach(movie => {
+                    const item = document.createElement('li');
+                    item.classList.add('swiper-slide');
+
+                    item.innerHTML =
+                        `
+            <div class="movie-imgBox">
+                <img src="${movie.Poster}">
+            </div>
+            <div class="movie-informationBox">
+                <h2 class="movie-title">${movie.Title}</h2>
+                <div class="movie-categoryBox">
+                    <p class="movie-category">Type :</p>
+                    <span class="movie-category">${movie.Genre}</span>
+                </div>
+                <ul class="movie-ratingBox">
+                    <li class="rating-row">
+                        <div class="rating-logo">
+                            <img src="${api.GIT_URL}/assets/images/logo-imdb.svg" alt="Internet Movie Database 로고">
+                        </div>
+                        <p class="rating-value">${movie.Ratings[0].Value}</p>
+                    </li>
+                    <li class="rating-row">
+                        <div class="rating-logo">
+                            <img src="${api.GIT_URL}/assets/images/logo-tomato.svg" alt="Rotten Tomatoes 로고">
+                        </div>
+                        <p class="rating-value">${movie.Ratings[1].Value}</p>
+                    </li>
+                </ul>
+
+                <p class="movie-description">${movie.Plot}</p>
+                <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="btn-click" aria-label="영화 정보">More Info</a>
+            </div>
+        `;
+
+                    // slideBox의 자식 요소로 뿌리기
+                    slideBox.appendChild(item);
+
+                    // swiper 슬라이드 효과주기
+                    const swiper = new Swiper(".mainSwiper", {
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                        navigation: {
+                            nextEl: ".main-page .swiper-option .swiper-navigation .swiper-button-next",
+                            prevEl: ".main-page .swiper-option .swiper-navigation .swiper-button-prev",
+                        },
+                    });
+                })
+            } catch (error) {
+                console.error('에러 발생:', error.message);
+            }
+        }
+
+    </script>
 </body>
 
 </html>

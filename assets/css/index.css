@@ -928,6 +928,10 @@ html[data-mode=dark] body {
   width: 100%;
   height: 100%;
 }
+.main-page .movie-imgBox .imgBox-img {
+  width: 100%;
+  height: 100%;
+}
 .main-page .popular-seriesBox {
   width: calc(100% - 10rem);
   position: absolute;

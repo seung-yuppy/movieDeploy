@@ -25,7 +25,7 @@ async function mainSlide() {
             item.innerHTML = 
             `
                 <div class="movie-imgBox">
-                    <img src="${api.GIT_URL}/assets/json/main.json/${movie.Poster}">
+                    <img src="${api.GIT_URL}/${movie.Poster}">
                 </div>
                 <div class="movie-informationBox">
                     <h2 class="movie-title">${movie.Title}</h2>

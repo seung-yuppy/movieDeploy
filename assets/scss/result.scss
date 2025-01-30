@@ -181,7 +181,8 @@
         @include w768 {
 
             .result-image {
-                height: auto;
+                width: 20rem;
+                height: 20rem;
             }
         }
     }  

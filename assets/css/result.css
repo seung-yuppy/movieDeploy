@@ -1071,7 +1071,8 @@ html[data-mode=light] .movie-ratingBox .rating-value {
 }
 @media (width < 768px) {
   .result-page .card-item .result-image {
-    height: auto;
+    width: 20rem;
+    height: 20rem;
   }
 }
 .result-page .informationBox-subList {

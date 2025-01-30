@@ -25,7 +25,7 @@ async function mainSlide() {
             item.innerHTML = 
             `
                 <div class="movie-imgBox">
-                    <div class="imgBox-img" style="background-image: url(${movie.Poster}); width: 100%; height: 100%; object-fit: cover;"></div>
+                    <div class="imgBox-img" style="background-image: url(${movie.Poster}); width: 100%; height: 100%; background-repeat : no-repeat; background-size : cover;"></div>
                 </div>
                 <div class="movie-informationBox">
                     <h2 class="movie-title">${movie.Title}</h2>

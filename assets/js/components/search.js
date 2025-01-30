@@ -132,7 +132,7 @@ function renderMovies(movies) {
         // 카드영역 코드
         movieCard.innerHTML = `
         <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="card-item">
-            <div class="imgBox-img" style="background: url(${Highposter}) no-repeat; background-size: cover; width: 100%; height: 100%;"></div>
+            <div class="imgBox-img" style="background: url(${Highposter}) no-repeat; background-size: cover; width: 100rem; height: 100rem;"></div>
             <div class="result-informationBox">
                 <h2 class="informationBox-title movie-title">${movie.Title}</h2>
                 <ul class="informationBox-subList">

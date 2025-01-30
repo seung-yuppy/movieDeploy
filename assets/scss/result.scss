@@ -169,8 +169,9 @@
 
         .result-image {
             height: 55rem;
-            object-fit: cover;
+            // object-fit: cover;
             border-radius: 1rem;
+            opacity: 1;
         }
 
         .movie-text {

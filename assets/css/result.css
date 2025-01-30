@@ -26,10 +26,6 @@
   font-style: normal;
 }
 @layer Typography {
-  :is(*, *::before, *::after) {
-    content: "";
-    font-family: "Pretendard Variable";
-  }
   html {
     font-size: 62.5%;
   }

@@ -925,12 +925,8 @@ html[data-mode=dark] body {
   overflow: hidden;
 }
 .main-page .movie-imgBox {
-  width: 300rem;
-  height: 300rem;
-}
-.main-page .movie-imgBox img {
-  width: 300rem;
-  height: 300rem;
+  width: 100%;
+  height: 100%;
 }
 .main-page .popular-seriesBox {
   width: calc(100% - 10rem);

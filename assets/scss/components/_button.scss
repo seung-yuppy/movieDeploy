@@ -183,6 +183,11 @@
     @include w768 {
         width: 15rem;
         height: 4.5rem;
+        font-size: 1.4rem;
+    }
+
+    @include w430 {
+        font-size: 1.2rem;
     }
 }
 
@@ -212,6 +217,16 @@
     @include background('ico-watched.svg', center, null, size, contain);
 
     html[data-mode="dark"] & {
+        filter: invert(1);
+    }
+}
+
+.btn-top {
+    width: 3.4rem;
+    aspect-ratio: 1;
+    @include background('ico-topArrow.svg', center, null, size, contain);
+
+    html[data-mode="light"] & {
         filter: invert(1);
     }
 }

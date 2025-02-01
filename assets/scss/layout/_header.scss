@@ -1,27 +1,60 @@
 @use '../abstracts/' as *;
 
 .header {
-    position: absolute;
+    position: fixed;
+    // position: absolute;
     inset: 0 0 auto 0;
     height: 10rem;
     z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-inline: $marginInline;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.scroll{
+        background-color: rgba(0, 0, 0, 0.25);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .inner {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-inline: $marginInline;
+    }
+
+    .main-index & {
+
+        @include w430 {
+            height: 15rem;
+            position: relative;
+        }
+    }
+
+    html[data-mode="light"] & {
+        
+        &.scroll{
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+    }
 
     @include w1240 {
-        margin-inline: 3rem;
+
+        .inner {
+            margin-inline: 3rem;
+        }
     }
 
     @include w430 {
         height: auto;
-        display: flex;
-        gap: 2rem;
-        padding: 3rem 0;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-inline: 1.5rem;
+
+        .inner {
+            display: flex;
+            gap: 2rem;
+            padding: 3rem 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-inline: 1.5rem;
+        }
 
         .utility {
             width: 100%;

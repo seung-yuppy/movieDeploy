@@ -1,8 +1,7 @@
-// http://www.omdbapi.com/?apikey=2d7b9efb
-
 import api from "../base/api.js";
-import { fetchType, fetchSearch, fetchYear } from "../base/param.js";
 import { get } from "../base/util.js";
+import { fetchType, fetchSearch, fetchYear } from "../base/param.js";
+import { getHighPoster } from "../components/highPoster.js";
 
 export const formEl = get(".form");
 export const filterEl = get(".input");
@@ -15,23 +14,20 @@ export let year = fetchYear();
 export let type = fetchType();
 export let page = 1;
 
-export function buttonEvent() {
-    formEl.addEventListener("submit", (e) => {
-        e.preventDefault();
-        searchPoint();
-    });
-}
 
 export function searchPoint() {
     try {
-        const value = filterEl.value.trim();
+        const filterEle = get(".input");
+        const yearEle = get(".select-year");
+        const typeEle = get(".select-type");
+
+        const value = filterEle.value.trim();
 
         // 선택된 값이 all이 아니면 선택된 값을 가져온다.
-        const year = yearEl.value !== "all" ? yearEl.value : "all";
-        const type = typeEl.value !== "all" ? typeEl.value : "all";
+        const year = yearEle.value !== "all" ? yearEle.value : "all";
+        const type = typeEle.value !== "all" ? typeEle.value : "all";
 
         // 페이지 이동하면서 파라미터 값도 전달
-        // let newUrl = `https://2eebyeonghyun.github.io/Est5movie/public/result.html?search=${encodeURIComponent(value)}`;
         let newUrl = `${api.GIT_URL}/public/result.html?search=${encodeURIComponent(value)}`;
 
         if (year) {
@@ -92,7 +88,7 @@ export async function getMovies(value, year, type, page) {
             url += `&t=${type}`;
         }
 
-        const res = await fetch(url);
+        const res = await fetch(url, {mode: 'cors', cache: 'no-store'});
         const data = await res.json();
 
         if (data.Search) {
@@ -107,9 +103,11 @@ export async function getMovies(value, year, type, page) {
 }
 
 function renderMovies(movies) {
+
     // error영역 display:none 처리
     const errorCard = get(".wrapper-errormessage");
     errorCard.style = "display:none";
+    
     // 검색결과영역 보이게 처리 후 초기화
     const itemCard = get(".itemcontainer-cardlist");
     itemCard.style = "";
@@ -122,25 +120,21 @@ function renderMovies(movies) {
         movieCard.className = "itemcontainer-card";
 
         // 포스터 사진이 있으면 좀 더 좋은 화질의 사진으로 대체 없으면 대체 이미지 삽입
-        let Highposter;
-        if (movie.Poster !== "N/A") {
-            Highposter = movie.Poster.replace("SX300", "SX3000");
-        } else {
-            Highposter = `${api.GIT_URL}/assets/images/poster-NotAvailable.png`;
-        }
+        const Highposter = getHighPoster(movie.Poster);
 
         // 카드영역 코드
-        movieCard.innerHTML = `
-        <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="card-item">
-            <img class="result-image" src="${Highposter}" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/>
-            <div class="result-informationBox">
-                <h2 class="informationBox-title movie-title">${movie.Title}</h2>
-                <ul class="informationBox-subList">
-                    <li class="subList-item"><span class="informationBox-title type-text type-text-${movie.Type}">${movie.Type}</span></li>
-                    <li class="subList-item"><span class="informationBox-title movie-year">${movie.Year}</span></li>
-                </ul>
-            </div>
-        </a>
+        movieCard.innerHTML = 
+        `
+            <a href="${api.GIT_URL}/public/inner-view.html?id=${movie.imdbID}" class="card-item">
+                <img class="result-image" src="${Highposter}" onerror="this.src='${api.GIT_URL}/assets/images/poster-NotAvailable.png'"/>
+                <div class="result-informationBox">
+                    <h2 class="informationBox-title movie-title">${movie.Title}</h2>
+                    <ul class="informationBox-subList">
+                        <li class="subList-item"><span class="informationBox-title type-text type-text-${movie.Type}">${movie.Type}</span></li>
+                        <li class="subList-item"><span class="informationBox-title movie-year">${movie.Year}</span></li>
+                    </ul>
+                </div>
+            </a>
         `;
         itemCard.appendChild(movieCard);
     });
@@ -169,23 +163,30 @@ function errorPage(data) {
 }
 
 async function moreMovies(searchParam, year, type, page) {
-    const response = await getMovies(searchParam, year, type, page);
-    let count = response.totalResults;
-    const moreBtn = get(".itemcontainer-btn");
-    if (count > 10) {
-        moreBtn.addEventListener("click", async () => {
-            page++;
-            let maxPage = Math.ceil(count / 10);
-            const movies = await getMovies(searchParam, year, type, page);
-            renderMovies(movies.Search);
-            console.log(page, maxPage);
-            if (page >= maxPage) { // 마지막 페이지 판별
-                moreBtn.style = "display:none";
-                console.log("last page!");
-            }
-        });
-    } else if (count < 10) {
-        moreBtn.style = "display:none";
-        console.log("last page!");
+
+    try {
+        const response = await getMovies(searchParam, year, type, page);
+        let count = response.totalResults;
+        const moreBtn = get(".itemcontainer-btn");
+        let countBox = get('.btn-click');
+        if (count > 10) {
+            moreBtn.addEventListener("click", async () => {
+                page++;
+                let maxPage = Math.ceil(count / 10);
+                const movies = await getMovies(searchParam, year, type, page);
+                renderMovies(movies.Search);
+                countBox.innerHTML = `${page} / ${maxPage}`
+                console.log(page, maxPage);
+                if (page >= maxPage) { // 마지막 페이지 판별
+                    moreBtn.style = "display:none";
+                    console.log("last page!");
+                }
+            });
+        } else if (count < 10) {
+            moreBtn.style = "display:none";
+            console.log("last page!");
+        }
+    } catch (error) {
+        console.error('error', error);
     }
 }

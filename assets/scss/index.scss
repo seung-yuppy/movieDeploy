@@ -39,6 +39,8 @@
         }
 
         @include w430 {
+            position: relative;
+            bottom: 0;
             width: calc(100% - 3rem);
             margin-inline: 1.5rem;
         }
@@ -95,6 +97,26 @@
             > a {
                 font-size: 1.6rem;
             }
+        }
+    }
+
+    .main-index & {
+
+        @include w430 {
+            flex: 1;
+        }
+    }
+
+    @include w430 {
+        height: auto;
+        // padding: 15rem 0 5rem;
+
+        .movie-imgBox {
+            width: calc(100% - 3rem);
+            margin-inline: 1.5rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-bottom: 3rem;
         }
     }
 }

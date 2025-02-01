@@ -16,8 +16,11 @@
 
 @layer Typography {
 
-    :is(*, *::before, *::after) {
-        content: '';
+    // :is(*, *::before, *::after) {
+    //     content: '';
+    //     font-family: "Pretendard Variable";
+    // }
+    * {
         font-family: "Pretendard Variable";
     }
 

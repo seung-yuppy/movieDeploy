@@ -14,6 +14,10 @@
     .result-page & {
         font-size: 2rem;
     }
+
+    @include w430 {
+        font-size: 2rem;
+    }
 }
 
 // 영화 관련 텍스트
@@ -35,6 +39,10 @@
         @include w768 {
             font-size: 4.5rem;
             word-break: break-all;
+        }
+
+        @include w430 {
+            font-size: 3.5rem;
         }
     }
 
@@ -79,6 +87,10 @@
         @include w768 {
             font-size: 1.8rem;
         }
+
+        @include w430 {
+            font-size: 1.4rem;
+        }
     }
 
     @include w1240 {
@@ -95,6 +107,13 @@
 
     html[data-mode="light"] & {
         color: $fontBlack;
+    }
+
+    .main-page & {
+
+        @include w430 {
+            font-size: 1.4rem;
+        }
     }
 }
 
@@ -113,6 +132,10 @@
 
         @include w768 {
             font-size: 1.5rem;
+        }
+
+        @include w430 {
+            font-size: 1.3rem;
         }
     }
 
@@ -191,6 +214,11 @@
     @include w768 {
         font-size: 1.2rem;
     }
+
+    @include w430 {
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
+    }
 }
 
 .movie-year {
@@ -209,6 +237,11 @@
 
     @include w768 {
         font-size: 1.2rem;
+    }
+
+    @include w430 {
+        font-size: 1rem;
+        padding: 0.3rem 0.5rem;
     }
 }
 
@@ -239,5 +272,17 @@
 
     @include w430 {
         font-size: 1.2rem;
+    }
+}
+
+.error-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $fontWhite;
+    line-height: 1.3;
+    text-align: center;
+
+    html[data-mode="dark"] & {
+        color: $fontWhite;
     }
 }

@@ -3,12 +3,25 @@
 .swiper {
     width: 100%;
     height: 100%;
+
+    .main-page & {
+
+        @include w430 {
+            margin-bottom: 5rem;
+        }
+    }
 }
 
 .swiper-slide {
 
-    .another-series & {
-        // height: 30rem;
+    .main-page & {
+
+        &-active {
+
+            .movie-title {
+                animation: 1s showText forwards;
+            }
+        }
     }
 }
 

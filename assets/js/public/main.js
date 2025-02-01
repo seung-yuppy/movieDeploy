@@ -1,16 +1,25 @@
 import api from "../base/api.js";
-import { buttonEvent, initializePage } from '../components/search.js';
-import { darkMode } from '../components/dark-mode.js';
 import { get } from '../base/util.js';
 import { loadHeader, loadFooter } from "../components/loadHF.js";
+import { initializeEvents } from '../base/eventHandler.js';
+import { initializePage } from '../components/search.js';
+import { topButton } from '../components/topButton.js';
+import { SwiperGroup } from '../components/swiperGroup.js';
 
+// 2025-01-25 추가
+export const initWeb = () => {
+    loadHeader();
+    loadFooter();
+    initializeEvents();
+    initializePage();
+    topButton();
+};
 
 // 메인 슬라이드
 async function mainSlide() {
 
     try {
         // json폴더의 main.json 호출
-        // const res = await fetch('../assets/json/main.json');
         const res = await fetch(`${api.GIT_URL}/assets/json/main.json`);
         const data = await res.json();
         const movies = data.movies;
@@ -27,6 +36,8 @@ async function mainSlide() {
                 <div class="movie-imgBox">
                     <img src="${movie.Poster}">
                 </div>
+
+                <h2 class="a11y-hidden">영화 소개 영역</h2>
                 <div class="movie-informationBox">
                     <h2 class="movie-title">${movie.Title}</h2>
                     <div class="movie-categoryBox">
@@ -57,17 +68,7 @@ async function mainSlide() {
             slideBox.appendChild(item);
 
             // swiper 슬라이드 효과주기
-            const swiper = new Swiper(".mainSwiper", {
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: ".main-page .swiper-option .swiper-navigation .swiper-button-next",
-                    prevEl: ".main-page .swiper-option .swiper-navigation .swiper-button-prev",
-                },
-            });
+            SwiperGroup();
         })
     } catch (error) {
         console.error('에러 발생:', error.message);
@@ -95,31 +96,9 @@ function popularSeries() {
     });
 
     // swiper 슬라이드로 만들기
-    const swiper2 = new Swiper(".mainBotSwiper", {
-        slidesPerView: 7,
-        spaceBetween: 30,
-        breakpoints: {
-            320: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 15,
-            },
-            1024: {
-                slidesPerView: 5,
-            },
-            1300: {
-                slidesPerView: 7,
-            }
-        }
-    });
+    SwiperGroup();
 }
 
-loadFooter();
-buttonEvent();
-initializePage();
-darkMode();
+initWeb();
 mainSlide();
 popularSeries();

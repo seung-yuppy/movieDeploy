@@ -1,8 +1,17 @@
-import { buttonEvent, initializePage, getMovies, loadMovies } from "../components/search.js";
-import { darkMode } from "../components/dark-mode.js";
+import { loadHeader, loadFooter } from "../components/loadHF.js";
+import { initializeEvents } from '../base/eventHandler.js';
+import { initializePage } from "../components/search.js";
 import { getAll } from "../base/util.js";
 import { fetchSearch, fetchType, fetchYear } from "../base/param.js";
-import { loadFooter } from "../components/loadHF.js";
+import { topButton } from '../components/topButton.js';
+
+export const initWeb = () => {
+    loadHeader();
+    loadFooter();
+    initializeEvents();
+    initializePage();
+    topButton();
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     let searchValue = fetchSearch();
@@ -29,19 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (name === "genre") {
                     genreValue = value;
-                    updateUrl(searchValue, yearValue, genreValue); // 2025.01.23 수정
-                    // loadMovies(searchValue, yearValue, genreValue, 1);
+                    updateUrl(searchValue, yearValue, genreValue);
                 } else if (name === "year") {
                     yearValue = value;
-                    updateUrl(searchValue, yearValue, genreValue); // 2025.01.23 수정
-                    // loadMovies(searchValue, yearValue, genreValue, 1);
+                    updateUrl(searchValue, yearValue, genreValue);
                 }
             });
         });
     }
 
-    // URL 주소 변경 작업( 2025.01.23 이병현)
     // 라디오버튼 변경하면 리다이렉트하고 URL주소 변경
+    // 선택된 라디오의 value값이 파라미터로 전달되고 페이지가 새로고침이 된다.
     function updateUrl(search, year, genre) {
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -56,7 +63,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-loadFooter();
-buttonEvent();
-initializePage();
-darkMode();
+initWeb();

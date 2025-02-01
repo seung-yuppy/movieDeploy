@@ -1,3 +1,18 @@
+@use "../abstracts/" as *;
+
+body {
+    scroll-behavior: smooth;
+
+    &.main-index {
+
+        @include w430 {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
 * {
     box-sizing: border-box;
 }
@@ -48,4 +63,23 @@ th,
 td {
     text-align: left;
     padding: 0;
+}
+
+main {
+    position: relative;
+}
+
+.spinner-img {
+    margin-top: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid $bgwhite;
+    border-radius: 50%;
+    width: 4rem;
+    aspect-ratio: 1;
+    animation: spin 1s linear infinite;
+
+    html[data-mode="light"] & {
+        border: 4px solid rgba(0, 0, 0, 0.3);
+        border-top: 4px solid $bgblack;
+    }
 }

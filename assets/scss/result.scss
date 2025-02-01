@@ -37,7 +37,7 @@
         .chkbox-row {
             margin-bottom: 3rem;
 
-            &:first-child {
+            &:first-of-type {
 
                 .row-contentBox {
                     height: 60rem;
@@ -45,13 +45,13 @@
                 }
             }
 
-            &:last-child {
+            &:last-of-type {
                 margin-bottom: 0;
             }
 
             @include w1240 {
 
-                &:first-child {
+                &:first-of-type {
 
                     .row-contentBox {
                         height: 30rem;
@@ -62,7 +62,7 @@
 
             @include w768 {
 
-                &:first-child {
+                &:first-of-type {
 
                     .row-contentBox {
                         height: 10rem;
@@ -192,9 +192,9 @@
         align-items: center;
 
         @include w430 {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2.5rem;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
         }
     }
 

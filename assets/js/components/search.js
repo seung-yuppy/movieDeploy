@@ -46,7 +46,7 @@ export function searchPoint() {
         // 페이지를 이동한다.
         window.location.href = newUrl;
     } catch (error) {
-        alert("에러가 발생했습니다.");
+        console.log("searchPoint에러"+error)
     }
 }
 
@@ -64,7 +64,7 @@ export function initializePage() {
             loadMovies(searchParam, year, type, page);
         }
     } catch (error) {
-        alert("에러가 발생했습니다.");
+        console.log("initializePage에러"+error)
     }
 }
 
@@ -97,8 +97,7 @@ export async function getMovies(value, year, type, page) {
             errorPage(data);
         }
     } catch (error) {
-        console.error("error", error);
-        alert(error.message);
+        console.error("getMovies에러", error);
     }
 }
 
@@ -146,7 +145,7 @@ export async function loadMovies(searchParam, year, type, page) {
         renderMovies(response.Search);
         moreMovies(searchParam, year, type, page);
     } catch (error) {
-        console.log(error.message);
+        console.log("loadMovies에러"+error);
     }
 }
 
@@ -187,6 +186,6 @@ async function moreMovies(searchParam, year, type, page) {
             console.log("last page!");
         }
     } catch (error) {
-        console.error('error', error);
+        console.error('moreMovies error', error);
     }
 }
